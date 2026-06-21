@@ -455,7 +455,7 @@ img {
 
 .case-content {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: 42px;
   margin-top: 42px;
 }
@@ -556,151 +556,85 @@ img {
   margin-top: 20px;
 }
 
-.review-paper {
+.screenshot-visual {
+  align-items: stretch;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(240, 243, 238, 0.92)),
+    var(--paper);
+  padding: 14px;
+}
+
+.screen-gallery {
   width: 100%;
-  max-width: 244px;
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
-  padding: 22px;
-  box-shadow: 8px 8px 0 rgba(24, 88, 79, 0.1);
-}
-
-.paper-top {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 740;
-  text-transform: uppercase;
-}
-
-.review-paper strong {
-  display: block;
-  margin-top: 16px;
-  font-size: 24px;
-  line-height: 1.2;
-}
-
-.review-paper ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  list-style: none;
-  margin: 18px 0;
-  padding: 0;
-}
-
-.review-paper li {
-  border: 1px solid var(--line);
-  padding: 7px 8px;
-  color: var(--muted);
-  font-size: 12px;
-  text-align: center;
-}
-
-.mastery-line {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-}
-
-.mastery-line span {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--paper-soft);
-  color: var(--teal);
-  font-size: 12px;
-  font-weight: 760;
-}
-
-.input-visual,
-.cross-visual,
-.payment-visual {
-  flex-direction: column;
-  gap: 22px;
-}
-
-.input-visual img,
-.cross-visual img,
-.payment-visual img {
-  width: 96px;
-  height: 96px;
-  object-fit: contain;
-}
-
-.keystream,
-.device-flow,
-.payment-flow {
-  width: 100%;
-  max-width: 232px;
-}
-
-.keystream {
-  display: grid;
-  grid-template-columns: auto repeat(5, 1fr) auto;
-  align-items: center;
-  gap: 8px;
-}
-
-.keystream span {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 740;
-}
-
-.keystream i {
-  height: 3px;
-  border-radius: 999px;
-  background: var(--rust);
-}
-
-.device-flow {
-  display: grid;
-  grid-template-columns: 44px 1fr 88px;
-  align-items: center;
   gap: 12px;
 }
 
-.phone-frame,
-.desktop-frame {
-  border: 2px solid var(--ink);
-  background: rgba(255, 255, 255, 0.7);
+.screen-gallery.two-up,
+.screen-gallery.four-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.phone-frame {
-  height: 78px;
-  border-radius: 12px;
+.screen-gallery.three-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.desktop-frame {
-  height: 58px;
-  border-radius: 6px;
-}
-
-.flow-line {
-  height: 2px;
-  background: var(--teal);
-}
-
-.payment-flow {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.screen-shot {
+  min-width: 0;
+  overflow: hidden;
   border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 10px 28px rgba(32, 36, 29, 0.07);
 }
 
-.payment-flow span {
+.screen-shot img {
+  width: 100%;
+  aspect-ratio: 16 / 10.8;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.screen-gallery.two-up .screen-shot img,
+.screen-gallery.four-up .screen-shot img {
+  aspect-ratio: 16 / 11.3;
+}
+
+.screen-gallery.three-up .wide-shot {
+  grid-column: 1 / -1;
+}
+
+.screen-gallery.three-up .wide-shot img {
+  aspect-ratio: 16 / 7.8;
+}
+
+.input-visual .screen-shot img {
+  aspect-ratio: 4 / 5;
+  object-position: center top;
+}
+
+.input-visual .wide-shot img {
+  aspect-ratio: 16 / 10;
+}
+
+.cross-visual .screen-shot img {
+  aspect-ratio: 16 / 9.8;
+}
+
+.payment-visual .screen-shot img,
+.review-visual .screen-shot img {
+  object-position: center top;
+}
+
+.screen-shot span {
   min-height: 42px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  padding: 9px 12px;
   color: var(--muted);
-  font-size: 11px;
-  font-weight: 740;
-}
-
-.payment-flow span + span {
-  border-left: 1px solid var(--line);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .capability-section {
